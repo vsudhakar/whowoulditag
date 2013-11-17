@@ -28,15 +28,21 @@
 						console.log($("groupName").val());
 						var item = { groupName: $("#groupName").val(), it: userName};
 						client.getTable('groups').insert(item);
-						console.log("Group added to the database")
+						console.log("Group added to the database");
+
+						//Relationship table update
+						var relItem = {
+							username: userName,
+							group: groupNameVar,
+							averagetime: 0
+						};
+						client.getTable('relationships').insert(relItem);
+						console.log("Relationship table updated");
 					}
 					else{
 						console.log("Group name is already in database.");
 					}
            		});
-
-				var groupRef = new Firebase('https://whowoulditag.firebaseio.com/'+userName+'/'+groupNameVar);
-				groupRef.set({});
 
 				//Display on app FOR DEBUGGING
 				$('#groupSelectWell').append("<p><div id = " + groupNameVar + "> <b>" + groupNameVar + "</b></div>")
@@ -167,6 +173,9 @@
 		<div class = "col-md-4">
 			<div class = "well" id = "groupStatsWell">
 				<h1> Group Stats </h1>
+				<table id = "stats_table" class = "table table-hover">
+
+				</table>
 			</div>
 		</div>
 		<div class = "col-md-4">
@@ -227,15 +236,13 @@
 			    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
 			);
 
-			var queryResults = "";
 
-			var query = client.getTable('groups').where({
+			var query = client.getTable('users').where({
 			}).read().done(function (results) {
            		console.log(JSON.stringify(results));
-           		queryResults = queryResults+JSON.stringify(results);
+           		var readInQuery = JSON.stringify(results);
+           		console.log(readInQuery);
            	});
-
-           	console.log(queryResults);
 
 
 
