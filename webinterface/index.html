@@ -100,7 +100,9 @@
 			var usersTable = client.getTable('users');
 			var query = usersTable.where({
 				name: userName
-			}).read();
+			}).read().done(function(results){
+				alert(JSON.stringify(results));
+			});
 			console.log(query);
 		}
 	</script>
