@@ -105,6 +105,12 @@
 				queryResults = JSON.stringify(results);
 			});
 			console.log(queryResults);
+
+			if(queryResults = undefined){
+				console.log("Creating record of user");
+				var item = { name: userName };
+				usersTable.insert(item);
+			}
 		}
 	</script>
 
