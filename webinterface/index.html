@@ -160,10 +160,11 @@
 				name: "Visrut Sudhakar"
 			}).read().done(function (results) {
            		alert(JSON.stringify(results));
+
            	});
 			console.log(query);
 
-			if(queryResults == undefined){
+			if(queryResults == null){
 				console.log("Creating record of user");
 				var item = { name: userName };
 				console.log(userName);
