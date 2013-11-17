@@ -261,7 +261,15 @@
 
            				//Display on app
            				var groupNameVar = sliced;
-						$('#groupSelectWell').append("<p><button class = 'button btn-primary groupLink' id = " + groupNameVar + "> <b>" + groupNameVar + "</b></button>")
+						/*$('#groupSelectWell').append("<p><button onclick = 'updateStats(' class = 'button btn-primary groupLink' id = " + groupNameVar + "> <b>" + groupNameVar + "</b></button>")*/
+
+						var newElement = document.createElement(groupNameVar);
+						newElement.type = "button";
+						newElement.addEventListener('click', function(){
+
+						});
+
+						$('#groupSelectWell').body.appendChild(newElement);
 
 
            			}
