@@ -261,7 +261,7 @@
 
            				//Display on app
            				var groupNameVar = sliced;
-						$('#groupSelectWell').append("<p><a onclick = "displayStats(groupNameVar)" id = " + groupNameVar + "> <b>" + groupNameVar + "</b></a>")
+						$('#groupSelectWell').append("<p><a class = "groupLink" id = " + groupNameVar + "> <b>" + groupNameVar + "</b></a>")
 
 
            			}
@@ -278,6 +278,14 @@
 		}
 
 		
+	</script>
+
+	<script>
+		//Display states for group
+		$('.groupLink').click(function(){
+			//Get id and do something
+			
+		});
 	</script>
 
 
