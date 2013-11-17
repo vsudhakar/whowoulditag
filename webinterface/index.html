@@ -170,7 +170,7 @@
 			var query = usersTable.where({
 				name: userName
 			}).read().done(function (results) {
-           		//alert(JSON.stringify(results));
+           		alert(JSON.stringify(results));
            		console.log(JSON.stringify(results));
            		queryResults = queryResults+JSON.stringify(results);
            	});
