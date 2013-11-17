@@ -44,8 +44,7 @@
 					}
            		});
 
-				//Display on app FOR DEBUGGING
-				$('#groupSelectWell').append("<p><div id = " + groupNameVar + "> <b>" + groupNameVar + "</b></div>")
+				
 			}
 		</script>
 	</head>
@@ -259,6 +258,11 @@
            				readInQuery = readInQuery.slice(pos2+2);
            				console.log(sliced);
            				console.log(readInQuery);
+
+           				//Display on app
+						$('#groupSelectWell').append("<p><div id = " + groupNameVar + "> <b>" + groupNameVar + "</b></div>")
+
+
            			}
            			else{
            				loop = false;
