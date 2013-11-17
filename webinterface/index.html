@@ -116,17 +116,23 @@
 
 	<div class = "row" id = "part2">
 		<div class = "col-md-4">
-			<div class = "well">
+			<div class = "well" id = "groupSelectWell">
 				<h1> Group Select </h1>
+				<p>
+				<form>
+					<input type = "text" id = "groupName" placeholder = "Enter new group name"></input> 
+				</form>
+				<p>
+				<button type="button" class="btn btn-primary" id = "createGroupButton" onclick = "createGroup()">Create group</button>
 			</div>
 		</div>
 		<div class = "col-md-4">
-			<div class = "well">
+			<div class = "well" id = "groupStatsWell">
 				<h1> Group Stats </h1>
 			</div>
 		</div>
 		<div class = "col-md-4">
-			<div class = "well">
+			<div class = "well" id = "tagWell">
 				<h1> Tag Someone </h1>
 			</div>
 		</div>
@@ -166,6 +172,18 @@
 			//console.log("Part 1 hidden");
 			$('#part2').show('slow');
 			console.log("Part 2 opened");
+			groupSelectUpdate();
+		}
+
+		function groupSelectUpdate(){
+			
+		}
+
+		function createGroup(){
+			console.log($("groupName").val());
+			var item = { groupName: $("groupName").val(), users: {userName}};
+			client.getTable('groups').insert(item);
+			console.log("Group added to the database")
 		}
 	</script>
 
