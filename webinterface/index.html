@@ -162,7 +162,7 @@
 			var queryResults;
 			var usersTable = client.getTable('users');
 			var query = usersTable.where({
-				name: "Visrut Sudhakar"
+				name: userName
 			}).read().done(function (results) {
            		//alert(JSON.stringify(results));
            		queryResults = JSON.stringify(results);
