@@ -106,10 +106,13 @@
 			});
 			console.log(queryResults);
 
-			if(queryResults = undefined){
+			if(queryResults == undefined){
 				console.log("Creating record of user");
 				var item = { name: userName };
 				usersTable.insert(item);
+			}
+			else{
+				console.log("Catch");
 			}
 		}
 	</script>
