@@ -13,12 +13,33 @@
 			    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
 				);
 
-				console.log($("groupName").val());
-				var item = { groupName: $("#groupName").val(), it: userName};
-				client.getTable('groups').insert(item);
-				console.log("Group added to the database")
-
 				var groupNameVar = $("#groupName").val();
+
+				var test = "test";
+
+				var query = client.getTable('groups').where({
+					groupName: groupNameVar
+				}).read().done(function (results) {
+	           		console.log(JSON.stringify(results));
+	           		queryResults = queryResults+JSON.stringify(results);
+	           		test = JSON.stringify(results);
+	           		console.log(test.length);
+
+	           		if(test.length < 5){
+						console.log($("groupName").val());
+						var item = { groupName: $("#groupName").val(), it: userName};
+						client.getTable('groups').insert(item);
+						console.log("Group added to the database")
+					}
+					else{
+						console.log("Group name is already in database.");
+					}
+           		});
+
+
+				
+
+				
 
 				var groupRef = new Firebase('https://whowoulditag.firebaseio.com/'+userName+'/'+groupNameVar);
 				groupRef.set({});
