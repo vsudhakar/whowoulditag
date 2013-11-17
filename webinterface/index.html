@@ -166,6 +166,7 @@
 			    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
 			);
 			var queryResults = "";
+			var test = "test";
 			var usersTable = client.getTable('users');
 			var query = usersTable.where({
 				name: userName
@@ -173,6 +174,8 @@
            		alert(JSON.stringify(results));
            		console.log(JSON.stringify(results));
            		queryResults = queryResults+JSON.stringify(results);
+           		test = JSON.stringify(results);
+           		console.log(test);
            	});
 
            	console.log(queryResults.length);
