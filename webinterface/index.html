@@ -253,6 +253,8 @@
            				var pos = readInQuery.search("{");
            				sliced = readInQuery.slice(pos);
            				console.log(sliced);
+           				readInQuery = sliced;
+           				loop = false;
            			}
            			else{
            				loop = false;
