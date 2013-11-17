@@ -4,6 +4,7 @@
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 		<script src="https://itag.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js"></script>
+		<script src='https://cdn.firebase.com/v0/firebase.js'></script>
 
 		<script>
 			function createGroup(){
@@ -13,9 +14,14 @@
 				);
 
 				console.log($("groupName").val());
-				var item = { groupName: $("#groupName").val(), users: userName};
+				var item = { groupName: $("#groupName").val(), it: userName};
 				client.getTable('groups').insert(item);
 				console.log("Group added to the database")
+
+				var groupNameVar = $("#groupName").val();
+
+				var groupRef = new Firebase('https://whowoulditag.firebaseio.com/'+userName+'/'+groupNameVar);
+				groupRef.set({status:yes});
 			}
 		</script>
 	</head>
@@ -193,7 +199,25 @@
 		}
 
 		function groupSelectUpdate(){
-			
+			var client = new WindowsAzure.MobileServiceClient(
+			    "https://itag.azure-mobile.net/",
+			    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
+			);
+
+			var queryResults = "";
+
+			var query = client.getTable('groups').where({
+			}).read().done(function (results) {
+           		console.log(JSON.stringify(results));
+           		queryResults = queryResults+JSON.stringify(results);
+           	});
+
+           	console.log(queryResults);
+
+
+
+
+
 		}
 
 		
