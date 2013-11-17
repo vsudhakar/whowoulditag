@@ -101,7 +101,7 @@
 
 	</nav>
 
-	<div class = "row">
+	<div class = "row" id = "part1">
 		<div class = "col-md-4">
 		</div>
 		<div class = "col-md-4">
@@ -110,6 +110,9 @@
 		<div class = "col-md-4">
 		</div>
 		
+	</div>
+
+	<div class = "row" id = "part2">
 	</div>
 
 
@@ -135,9 +138,15 @@
 				usersTable.insert(item);
 			}
 			else{
-				console.log("Catch");
-				console.log(userName);
+				console.log("User is already in database.");
 			}
+
+			transition1();
+		}
+
+		function transition1() {
+			$('#part1').hide('slow');
+			console.log("Part 1 hidden");
 		}
 	</script>
 
