@@ -237,8 +237,9 @@
 			);
 
 
-			var query = client.getTable('users').where({
-			}).read().done(function (results) {
+			var query = client.getTable('relationships').where({
+				username: userName
+			}).select("group").read().done(function (results) {
            		console.log(JSON.stringify(results));
            		var readInQuery = JSON.stringify(results);
            		console.log(readInQuery);
