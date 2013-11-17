@@ -6,14 +6,14 @@
 		<script src="https://itag.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js"></script>
 
 		<script>
-			function createGroup(){
+			function createGroup(nameToPass){
 				var client = new WindowsAzure.MobileServiceClient(
 			    "https://itag.azure-mobile.net/",
 			    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
 				);
 
 				console.log($("groupName").val());
-				var item = { groupName: $("groupName").val(), users: userName};
+				var item = { groupName: nameToPass, users: userName};
 				client.getTable('groups').insert(item);
 				console.log("Group added to the database")
 			}
@@ -137,7 +137,7 @@
 					<input type = "text" class = "form-control" id = "groupName" placeholder = "Enter new group name"></input> 
 				</form>
 				<p>
-				<button type="button" class="btn btn-primary" id = "createGroupButton" onclick = "createGroup()">Create group</button>
+				<button type="button" class="btn btn-primary" id = "createGroupButton" onclick = "createGroup($("groupName").val())">Create group</button>
 			</div>
 		</div>
 		<div class = "col-md-4">
