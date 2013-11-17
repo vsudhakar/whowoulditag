@@ -35,13 +35,11 @@
 					}
            		});
 
-
-				
-
-				
-
 				var groupRef = new Firebase('https://whowoulditag.firebaseio.com/'+userName+'/'+groupNameVar);
 				groupRef.set({});
+
+				//Display on app FOR DEBUGGING
+				$('#groupSelectWell').append("<p><div id = " + groupNameVar + "> <b>" + groupNameVar + "</b></div>")
 			}
 		</script>
 	</head>
