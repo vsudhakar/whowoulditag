@@ -8,7 +8,7 @@
 		<script>
 			function createGroup(){
 				console.log($("groupName").val());
-				var item = { groupName: $("groupName").val(), users: {userName}};
+				var item = { groupName: $("groupName").val(), users: userName};
 				client.getTable('groups').insert(item);
 				console.log("Group added to the database")
 			}
@@ -158,10 +158,8 @@
 			var usersTable = client.getTable('users');
 			var query = usersTable.where({
 				name: userName
-			}).read().done(function(results){
-				queryResults = JSON.stringify(results);
 			});
-			console.log(queryResults);
+			console.log(query);
 
 			if(queryResults == undefined){
 				console.log("Creating record of user");
