@@ -253,8 +253,9 @@
            				var pos = readInQuery.search("{");
            				var pos2 = readInQuery.search("}");
            				sliced = readInQuery.slice(pos+1, pos2);
-           				console.log(sliced);
            				readInQuery = sliced;
+           				sliced = readInQuery.slice(9, readInQuery.length);
+           				console.log(sliced);
            				loop = false;
            			}
            			else{
