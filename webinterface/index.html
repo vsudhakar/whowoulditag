@@ -9,36 +9,25 @@
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 
 		<div id="fb-root"></div>
-		<script>
-  			window.fbAsyncInit = function() {
+			<script>
+			  window.fbAsyncInit = function() {
 			    FB.init({
-			        appId      : '1478363702389039',
-			        status     : true,
-			        cookie     : true,
-			        xfbml      : true  
+			      appId      : '1478363702389039', // App ID
+			      status     : true, // check login status
+			      cookie     : true, // enable cookies to allow the server to access the session
+			      xfbml      : true  // parse XFBML
 			    });
-
-			    $(document).trigger('fbload');  //  <---- THIS RIGHT HERE TRIGGERS A CUSTOM EVENT CALLED 'fbload'
-			};
-
-			//MEANWHILE IN $(document).ready()
-			$(document).on(
-			    'fbload',  //  <---- HERE'S OUR CUSTOM EVENT BEING LISTENED FOR
-			    function(){
-			    	console.log("Here is a console log test");
-			        //some code that requires the FB object
-			        //such as...
-			        FB.getLoginStatus(function(res){
-			            if( res.status == "connected" ){
-			                FB.api('/me', function(fbUser) {
-			                    console.log("Open the pod bay doors, " + fbUser.name + ".");
-			                });
-			            }
-			        });
-
-			    }
-			);
-		</script>
+			    };
+			 
+			  (function(d){
+			     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+			     if (d.getElementById(id)) {return;}
+			     js = d.createElement('script'); js.id = id; js.async = true;
+			     js.src = "//connect.facebook.net/en_US/all.js";
+			     ref.parentNode.insertBefore(js, ref);
+			   }(document));
+			 
+			</script>
 
 	</body>
 </html>
