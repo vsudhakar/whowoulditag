@@ -3,6 +3,7 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+		<script src="https://itag.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js"></script>
 	</head>
 
 <body>
@@ -58,22 +59,23 @@
 	   ref.parentNode.insertBefore(js, ref);
 	  }(document));
 
+	  var userName;
+
 	  // Here we run a very simple test of the Graph API after login is successful. 
 	  // This testAPI() function is only called in those cases. 
 	  function testAPI() {
 	    console.log('Welcome!  Fetching your information.... ');
 	    FB.api('/me', function(response) {
 	      console.log('Good to see you, ' + response.name + '.');
+	      userName = response.name;
 	    });
-	    getFriends();
+
+	    //getFriends();
+
+	    updateToDb();
+
 	  }
 	</script>
-
-	<!--
-	  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
-	  present a graphical Login button that triggers the FB.login() function when clicked. -->
-
-	<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
 
 	<script type="text/javascript">
 		function getFriends() {
@@ -88,5 +90,27 @@
 		    });
 		}
 	</script>
+
+	<script type="text/javascript">
+		function updateToDb() {
+			var client = new WindowsAzure.MobileServiceClient(
+			    "https://itag.azure-mobile.net/",
+			    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
+			);
+			var usersTable = client.getTable('users');
+			var query = usersTable.where({
+				name: userName
+			}).read();
+			console.log(query);
+		}
+	</script>
+
+
+	<div class = "row">
+		<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+	</div>
+	
+
+
 </body>
 </html>
