@@ -1,11 +1,11 @@
 <html>
 	<head>
 		<title>Who would I tag?</title>
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 	</head>
 
 	<body>
+		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
 
 		<div id="fb-root"></div>
 		<script>
@@ -36,20 +36,6 @@
 
 			    }
 			);
-		</script>
-
-		<script type="text/javascript">
-			FB.login(function(response) {
-			   if (response.authResponse) {
-			     console.log('Welcome!  Fetching your information.... ');
-			     FB.api('/me', function(response) {
-			       console.log('Good to see you, ' + response.name + '.');
-			     });
-			   } else {
-			     console.log('User cancelled login or did not fully authorize.');
-			   }
-			});
-
 		</script>
 
 	</body>
