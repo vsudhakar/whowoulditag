@@ -251,7 +251,8 @@
            		while(loop){
            			if(readInQuery.search("{") != -1){
            				var pos = readInQuery.search("{");
-           				sliced = readInQuery.slice(pos);
+           				var pos2 = readInQuery.search("}");
+           				sliced = readInQuery.slice(pos+1, pos2);
            				console.log(sliced);
            				readInQuery = sliced;
            				loop = false;
