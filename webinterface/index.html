@@ -243,6 +243,21 @@
            		console.log(JSON.stringify(results));
            		var readInQuery = JSON.stringify(results);
            		console.log(readInQuery);
+
+           		//Update display
+           		var loop = true;
+           		var sliced = "";
+
+           		while(loop){
+           			if(readInQuery.search("{") != -1){
+           				var pos = readInQuery.search("{");
+           				sliced = readInQuery.slice(pos);
+           				console.log(sliced);
+           			}
+           			else{
+           				loop = false;
+           			}
+           		}
            	});
 
 
