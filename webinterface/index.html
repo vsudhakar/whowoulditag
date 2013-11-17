@@ -6,12 +6,12 @@
 		<script src="https://itag.azure-mobile.net/client/MobileServices.Web-1.0.0.min.js"></script>
 
 		<script>
-				function createGroup(){
-					var client = new WindowsAzure.MobileServiceClient(
-				    "https://itag.azure-mobile.net/",
-				    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
+			function createGroup(){
+				var client = new WindowsAzure.MobileServiceClient(
+			    "https://itag.azure-mobile.net/",
+			    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
 				);
-					
+
 				console.log($("groupName").val());
 				var item = { groupName: $("groupName").val(), users: userName};
 				client.getTable('groups').insert(item);
@@ -155,7 +155,10 @@
 
 	<script type="text/javascript">
 		function updateToDb() {
-			
+			var client = new WindowsAzure.MobileServiceClient(
+			    "https://itag.azure-mobile.net/",
+			    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
+			);
 			var queryResults;
 			var usersTable = client.getTable('users');
 			var query = usersTable.where({
