@@ -97,13 +97,14 @@
 			    "https://itag.azure-mobile.net/",
 			    "LpnkHFTfwySUYBqpggzlXPIGwMZSpH48"
 			);
+			var queryResults;
 			var usersTable = client.getTable('users');
 			var query = usersTable.where({
 				name: userName
 			}).read().done(function(results){
-				alert(JSON.stringify(results));
+				query_results = JSON.stringify(results);
 			});
-			console.log(query);
+			console.log(query_results);
 		}
 	</script>
 
