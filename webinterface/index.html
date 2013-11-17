@@ -59,6 +59,7 @@
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
     });
+    getFriends();
   }
 </script>
 
@@ -67,5 +68,19 @@
   present a graphical Login button that triggers the FB.login() function when clicked. -->
 
 <fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+
+<script type="text/javascript">
+	function getFriends() {
+	    FB.api('/me/friends', function(response) {
+	        if(response.data) {
+	            $.each(response.data,function(index,friend) {
+	                alert(friend.name + ' has id:' + friend.id);
+	            });
+	        } else {
+	            alert("Error!");
+	        }
+	    });
+	}
+</script>
 </body>
 </html>
