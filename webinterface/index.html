@@ -248,13 +248,15 @@
            		var loop = true;
            		var sliced = "";
 
+           		var readFull = readInQuery;
+
            		while(loop){
            			if(readInQuery.search("{") != -1){
            				var pos = readInQuery.search("{");
            				var pos2 = readInQuery.search("}");
            				sliced = readInQuery.slice(pos+1, pos2);
-           				readInQuery = sliced;
-           				sliced = readInQuery.slice(9, readInQuery.length);
+           				sliced = sliced.slice(9, readInQuery.length-1);
+           				readInQuery = readInQuery.slice(pos2+1);
            				console.log(sliced);
            				loop = false;
            			}
