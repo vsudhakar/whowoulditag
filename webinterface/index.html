@@ -109,10 +109,12 @@
 			if(queryResults == undefined){
 				console.log("Creating record of user");
 				var item = { name: userName };
+				console.log(userName);
 				usersTable.insert(item);
 			}
 			else{
 				console.log("Catch");
+				console.log(userName);
 			}
 		}
 	</script>
