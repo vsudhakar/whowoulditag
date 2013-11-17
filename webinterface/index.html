@@ -165,12 +165,12 @@
 				name: userName
 			}).read().done(function (results) {
            		//alert(JSON.stringify(results));
-           		queryResults = JSON.stringify(results);
-           		var test = JSON.stringify(results);
-           		alert(test);
-           		queryResults = String(queryResults);
+           		//queryResults = JSON.stringify(results);
+           		//var test = JSON.stringify(results);
+           		//alert(test);
+           		//queryResults = String(queryResults);
            	});
-			console.log(query);
+			console.log(String(query));
 			console.log(queryResults);
 
 			if(queryResults.length === 2){
