@@ -1,4 +1,3 @@
-whowoulditag
+WhoWouldITag
 ============
-
-The github for the whowoulditag app
+HackDuke 2013: Our First Effort
